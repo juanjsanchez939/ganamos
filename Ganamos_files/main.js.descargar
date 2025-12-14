@@ -1,0 +1,35 @@
+// MAIN 1 FUNCION NORMAL PARA UN SOLO NUMERO DE TELEFONO
+window.addEventListener("DOMContentLoaded", () => {
+    const btn = document.querySelector(".Btn");
+    setTimeout(() => {
+        btn.classList.add("expand");
+    }, 300); // delay para suavizar
+});
+
+// evento de click para el pixel
+
+document.addEventListener("DOMContentLoaded", () => {
+  const linkBtn = document.getElementById("linkBtn");
+
+  if (linkBtn) {
+    linkBtn.addEventListener("click", (event) => {
+      fbq('trackCustom', 'LinkClick', { url: linkBtn.href });
+      console.log("Evento Pixel: clic en link detectado →", linkBtn.href);
+    });
+  }
+});
+
+
+// Usar link corto de WhatsApp
+const shortWhatsAppLink = "https://wa.link/4igljq";
+
+function sendWhatsAppMessage() {
+  // Abrir directamente el short link
+  window.open(shortWhatsAppLink, "_blank");
+}
+
+// Vincular al botón (si existe)
+const _btn = document.querySelector(".Btn");
+if (_btn) {
+  _btn.addEventListener("click", sendWhatsAppMessage);
+}
